@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="shortcut icon" type="img/jpg" href="img/logohutech.jpg">
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <style>
+        body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("img/hutech.jpg");
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    }
+    </style>
+    <header>
+       <a href="login.html" ><img src="img/logohutech.jpg" alt="logo hutech" class="logo"></a>
+       <div class="logoname">
+        <h4>Sổ liên lạc điện tử</h4>
+        <h3>Đại học Hutech</h3>
+
+       </div>
+       <div class="thongtin">
+        <div class="hdsd">
+            <a href="phuhuynh.html">Hướng Dẫn Sử Dụng</a>
+        </div>
+       </div>
+
+       <div class="giaidap">
+           <div class="hdsd">
+            <a href="https://www.facebook.com/THN.Mothra">Giải Đáp</a>
+           </div>
+       </div>
+    </header>
+    <div class="form">
+        <form action="login.php" method="POST">
+            <div class="container">
+                <label for="uname"><b>Tài Khoản</b></label>
+                <input type="text" placeholder="Tài Khoản" name="uname" required>
+
+                <label for="psw"><b>Mật Khẩu</b></label>
+                <input type="passwork" placeholder="Mật Khẩu" name="psw" required>
+
+                <button type="submit">Đăng Nhập</button>
+                <label>
+                    <input type="checkbox" name="remember" > Remember me
+                </label>
+                <span class="psw">Quênn <a href="change_passwork.html">Mật Khẩu</a></span>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
