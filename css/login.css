@@ -44,7 +44,7 @@ header .giaidap{
 }
 body .form{
     background-color: white;
-    height: 275px;
+    height: 300px;
     width: 650px;
     position: relative;
     top:100px;
@@ -76,5 +76,11 @@ body .container{
 span.psw {
     float: right;
     padding-top: 16px;
-    top: 1000px;
+    position: relative;
+    top: 5px;
+}
+.remember{
+    position: relative;
+    top: 5px;
+    display:flex;
 }
