@@ -1,0 +1,31 @@
+header{
+    display: flex;
+    flex-direction: row;
+    background-color:whitesmoke;
+}
+
+header .logo{
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+}
+header h1{
+    position: relative;
+    left: 600px;
+    color: black;
+}
+body{
+    background-color: grey;
+}
+body .form{
+    background-color: white;
+    height: 850px;
+    width: 1000px;
+    position: relative;
+    left: 400px;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius:20px;
+}
+body .infor{
+    color:black;
+}
