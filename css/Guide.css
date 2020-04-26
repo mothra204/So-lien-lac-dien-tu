@@ -28,4 +28,14 @@ body .form{
 }
 body .infor{
     color:black;
+    position: relative;
+    left: 375px;
+    top: 350px;
 }
+body .infor1{
+    color:black;
+    position: relative;
+    left: 365px;
+    top: 350px;
+}
+

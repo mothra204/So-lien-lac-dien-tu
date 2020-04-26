@@ -1,34 +1,34 @@
 <?php 
-  session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SỔ LIÊN LẠC ĐIỂN TỬ HUTECH</title>
-  <link rel="stylesheet" type="text/css" href="css/styte.css" />
-  <link rel="shortcut icon" type="img/jpg" href="img/logohutech.jpg">
+	<link rel="stylesheet" type="text/css" href="css/styte.css" />
+	<link rel="shortcut icon" type="img/jpg" href="img/logohutech.jpg">
 </head>
 	<body>	
- <div id="top_bar">
-  <?php 
+	<div id="top_bar">
+	<?php 
             if ($_SESSION['Role_ID'] == '1')
             {
-          ?>
-              <h1><a href="url">NHAP DIEM</a></h1>
-              <h1><a href="url">XEM DIEM</a></h1>
-          <?php 
+	?>
+            <h1><a href="url">NHAP DIEM</a></h1>
+            <h1><a href="url">XEM DIEM</a></h1>
+	<?php 
             }else
-          ?>
-          <?php 
+	?>
+	<?php 
             if ($_SESSION['Role_ID'] == '2')
             {
-          ?>
-              <h1><a href="url">XEM DIEM</a></h1>
-          <?php 
-            }
-		  ?>
+	?>
+	<h1><a href="url">XEM DIEM</a></h1>
+	<?php 
+			}
+	?>
 </div> 
 		<div id="menu_top">
 			<ul>
