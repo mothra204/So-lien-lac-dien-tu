@@ -16,7 +16,7 @@ session_start();
             if ($_SESSION['Role_ID'] == '1')
             {
 	?>
-            <h1><a href="url">NHAP DIEM</a></h1>
+            <h1><a href="nhapdiem.html">NHAP DIEM</a></h1>
             <h1><a href="url">XEM DIEM</a></h1>
 	<?php 
             }else

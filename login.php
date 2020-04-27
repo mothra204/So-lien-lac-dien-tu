@@ -2,13 +2,13 @@
     session_start();
     $host="localhost";
     $user="root";
-    $passwork="";
+    $password="";
     $dbname="test";
 
     $RoleID;
 
      // Create connection
-    $conn = mysqli_connect($host,$user,$passwork,$dbname);
+    $conn = mysqli_connect($host,$user,$password,$dbname);
      // Check connection
     if ($conn->connect_error) 
     {
