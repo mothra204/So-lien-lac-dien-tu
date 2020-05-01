@@ -22,11 +22,6 @@ body{
 	float: left;
 	min-height: 600px;
 }
-#main #right{
-	width: 300px; 
-	float: left;
-	min-height: 400px;
-}
 #footer{
 	background: #000;
 	width: 1000px;
@@ -112,3 +107,4 @@ body{
 #footer ul li{
 	font-size: 100px;
 }
+
