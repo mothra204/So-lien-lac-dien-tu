@@ -9,6 +9,9 @@ session_start();
 	<title>SỔ LIÊN LẠC ĐIỂN TỬ HUTECH</title>
 	<link rel="stylesheet" type="text/css" href="css/styte.css" />
 	<link rel="shortcut icon" type="img/jpg" href="img/logohutech.jpg">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 	<body>	
 	<div id="top_bar">
@@ -16,9 +19,9 @@ session_start();
             if ($_SESSION['Role_ID'] == '1')
             {
 	?>
-            <h1><a href="nhapdiem.html">NHAP DIEM</a></h1>
+            <h1><a href="nhapdiem.php">NHAP DIEM</a></h1>
             <h1><a href="url">XEM DIEM</a></h1>
-	<?php 
+	<?php  
             }else
 	?>
 	<?php 
@@ -30,15 +33,15 @@ session_start();
 			}
 	?>
 </div> 
-		<div id="menu_top">
-			<ul>
-				<li><a href="index.html" title="Truy cập vào Trang Chủ" Class="active">Trang Chủ</a></li>
-				<li><a href="gioithieu.html" title="Truy cập vào Giới Thiệu">Giới Thiệu</a></li>
-				
-				<li><a href="http://localhost:8080/testlogin/url" title="Xem Điểm">Xem Điểm</a></li>
-				<li><a href="#" title="Thông Báo">Thông Báo</a></li>
-				<li><a href="detail.html" title="Hướng Dẫn">Hướng Dẫn</a></li>		
-			</ul>
+		<div id="menu_top"> 
+		<ul>
+			<li><a class="active" href="index.php">Trang Chủ</a></li>
+			<li><a href="#">Xem Điểm</a></li>
+			<li><a href="nhapdiem.html">Nhập Điểm</a></li>
+			<li><a href="#">Tin Tức</a></li>
+			<li><a href="Guide.html">Hướng Dẫn</a></li>
+		</ul>
+		</div>
 		</div>
 		<div id="banner">
 			<img src="img/hutech.png" />

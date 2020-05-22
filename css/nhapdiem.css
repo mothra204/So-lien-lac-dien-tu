@@ -18,3 +18,15 @@ body .form{
 #footer ul li{
 	font-size: 100px;
 }
+#dropdown1{
+    float: left; 
+}
+#dropdown{
+    float: right;
+}
+
+#Container_1
+{
+   position: relative;
+   margin-top: 5%;
+}

@@ -33,9 +33,8 @@
             elseif ($RoleID == 2 )
                 $_SESSION['Role_ID'] = '2';
             
-            header("Location:http://localhost:8080/testlogin/index.php");
-            //if ($RoleID == 2 )
-             //   header("Location:http://google.com");
+            header("Location:http://localhost:8080/So-Lien-Lac-Dien-tu/index.php");
+            
         }
         else{
             echo "Kiểm tra lại tài khoản và mật khẩu . <a href='javascript: history.go(-1)'>Trở lại</a>";
