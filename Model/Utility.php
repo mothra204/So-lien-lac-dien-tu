@@ -1,9 +1,6 @@
 <?php
 include_once "__DIR__/../ConnectDB.php";
 
-$q = $_REQUEST["q"];
-
-$hint = "";         
 class cUtility
 {
     private $connection;
@@ -31,21 +28,25 @@ class cUtility
         }
         return $arrRecord ;
     }
-    function GetName(){
+    function GetName($className)
+    {
+        
         $connection = cConnectDB::getInstance()->Connection();
         
-        $result = mysqli_query($connection, "select name FROM sinh_vien where class ='".$q."'");
+        $result = mysqli_query($connection, "select id_sinh_vien,name FROM sinh_vien where class ='".$className."'");
         $arrRecord = [];
         
         while($row = mysqli_fetch_assoc($result)) 
         {
-            if ($row['name'] != NULL)
+            if ($row['name'] != NULL && $row['id_sinh_vien'] != NULL)
             {
-                array_push($arrRecord,$row['name']);
+                array_push($arrRecord,$row['name'],$row['id_sinh_vien']);
             }
             
         }
         return $arrRecord ;
+        
+        
     }
 }
 ?>

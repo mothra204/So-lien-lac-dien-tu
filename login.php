@@ -37,10 +37,8 @@
             
         }
         else{
-            echo "Kiểm tra lại tài khoản và mật khẩu . <a href='javascript: history.go(-1)'>Trở lại</a>";
+            echo "Kiểm tra lại tài khoản và mật khẩu .";
         }
     }
-
-    
-
 ?>
+<!-- <a href='javascript: history.go(-1)'>Trở lại</a> -->

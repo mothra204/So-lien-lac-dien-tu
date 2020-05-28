@@ -1,9 +1,9 @@
+
 <?php
-    include_once "__DIR__/../Model/Utility.php";
-    session_start();
-    $oUtility = new cUtility;
+	include_once "__DIR__/../Model/Utility.php";
+	session_start();
+	$oUtility = new cUtility;
 	$arrClass = $oUtility->GetClass();
-	$arrName = $oUtility->GetName();
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,8 +61,6 @@
 		<div id="menu">
 		<ul>
 			<li><a class="active" href="index.php">Trang Chủ</a></li>
-			<li><a href="#">Xem Điểm</a></li>
-			<li><a href="nhapdiem.html">Nhập Điểm</a></li>
 			<li><a href="#">Tin Tức</a></li>
 			<li><a href="Guide.html">Hướng Dẫn</a></li>
 		</ul>
@@ -71,106 +69,107 @@
 
 		<!-- Phan body -->
 		<div class="container">
-			
 			<h2>Nhập Điểm</h2>
 			<!-- dropdown tim thong tin -->
 			<div  class="container">
 					
-						<button id="dropdown" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+					<button id="dropdown" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 					Tên Sinh Viên
 					</button>
 					<!-- Drop down name sinh vien-->
-					<div class="dropdown-menu">
-					<?php foreach($arrName as $v) { ?>
-						<a class="dropdown-item dropdown-item-name" > <?php echo $v ?> </a>
-					<?php } ?>
+					<div id = "dropdownStudent" class="dropdown-menu">
 					</div>
+					<p id="importName"></p>
 			</div>
 			
-
-
 
 			<!-- Drop down class -->		
 			<div  class="container">
 					<button id=dropdown1  type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 					Lớp
 					</button>
-					<div class="dropdown-menu">
-					<?php foreach($arrClass as $x => $x_value) { ?>
-						<a class="dropdown-item dropdown-item-class " onchange="myFunction()" onkeyup="showName(this.value)"><?php echo $x_value ?></a>
-					<?php } ?>
+					<div  class="dropdown-menu">
+						<?php foreach($arrClass as $x => $x_value) { ?>
+							<a class="dropdown-item dropdown-item-class " onchange="myFunction()" onkeyup="showName(this.value)"><?php echo $x_value ?></a>
+						<?php } ?>
+						
                     </div>
 					<p id="importclass" ></p>
             </div>
+			<!-- Lay data -->
 			<script>
 				var elements = document.getElementsByClassName("dropdown-item-class");
+
+				var OnChangeStudent = function() 
+				{
+					
+					console.log(this.getAttribute("ValueID"));
+					document.getElementById("importName").innerHTML +=this.getAttribute("ValueID");
+				}
+								
+
         		var myFunction = function(value) {
-					console.log(this.innerHTML);
-					document.getElementById("importclass").innerHTML = "You selected: " + this.innerHTML;
+					var str = this.innerHTML;
+					
+					document.getElementById("importclass").innerHTML = ">> " + this.innerHTML;
+
+					//Ajax
+					var xhttp = new XMLHttpRequest();
+					var arrStudemt = [];
+
+					xhttp.onreadystatechange = function() 
+					{
+						if (this.readyState == 4 && this.status == 200) {
+							arrStudemt = JSON.parse(this.responseText);
+							var dropdownStudent = document.getElementById("dropdownStudent");
+							
+							for(var i = 0; i < arrStudemt.length; i+=2) 
+							{
+								//Declare
+								var j = i ;
+								var obj = arrStudemt[i];
+								var node = document.createElement("a");                
+								var textnode = document.createTextNode(obj);      
+								//Init
+								node.setAttribute("ValueID", arrStudemt[++j]);
+								node.appendChild(textnode);                            
+								node.className = "dropdown-item dropdown-item-class";
+								node.onclick = OnChangeStudent;
+
+								dropdownStudent.appendChild(node);
+							}
+						}
+					};
+					
+					xhttp.open("GET", "./Model/Data.php?q=" + str, true);
+					xhttp.send();
         		};	
-            		for (var i = 0; i < elements.length; i++) {
+
+            	for (var i = 0; i < elements.length; i++) 
+				{
                 		elements[i].addEventListener('click', myFunction, true);
         		}
 			</script>
-			<script>
-				function showName(str){
-					if(str.length==0){
-						document.getElementsByClass("dropdown-item-class").innerHTML="";
-						return;
-					} else{
-						var xmlhttp = new XMLHttpRequest();
-						xmlhttp.onreadystatechange = function() {
-						if (this.readyState == 4 && this.status == 200) {
-							document.getElementById("importclass").innerHTML = this.responseText;
-						}
-						};
-							xmlhttp.open("GET", "Utility.php?q=" + str, true);
-							xmlhttp.send();
-					}
-				}
-			</script>
-
-
-			<!--<a class="dropdown-item" href="#" value='".$x_value."' id="class" onchange="myFunction()"><?php echo $x_value ?></a>-->	
 			
 			
+		
+		<!--Thanh update diem cho sinh vien -->
 		<div id="Container_1"  class="container">	
-			<form action="nhapdiem.php">
+			<form action="Model/UpdateMark.php" method="POST">
 			<div class="form-group">
-				<label for="number">Điểm bài tập 1 </label>
-				<input type="number" class="form-control" id="Number" placeholder="Nhập điểm" name="mark1">
-			</div>
-			
-			<div class="form-group">
-				<label for="number">Điểm bài tập 2 </label>
-				<input type="number" class="form-control" id="Number" placeholder="Nhập điểm" name="mark2">
-			</div>
-			
-			<div class="form-group">
-				<label for="number">Điểm quá trình </label>
-				<input type="number" class="form-control" id="Number" placeholder="Nhập điểm" name="mark3">
-			</div>
-			
-			<div class="form-group">
-				<label for="number">Điểm Thi </label>
-				<input type="number" class="form-control" id="Number" placeholder="Nhập điểm" name="mark4">
-			
-				<div class="form-group">
-				<label for="number">Điểm Tổng </label>
-				<input type="number" class="form-control" id="Number" placeholder="Nhập điểm" name="mark5">
-			</div>
-			
-			<div class="form-group form-check">
-				<label class="form-check-label">
-				<input class="form-check-input" type="checkbox" name="remember"> Đã kiểm tra
-				</label>
+				<label>Nhập Mã Môn Học</label>
+				<input type="text" class="form-control" placeholder="Nhập" name="idClass">
+				<label for="number">Nhập Điểm</label>
+				<input type="text" class="form-control" id="Number" placeholder="Nhập điểm" name="Mark">
 			</div>
 			<button type="submit" class="btn btn-primary">Đồng ý</button>
+			
 			</form>
 		</div>
-
-		</div>
 		
+
+
+
 
 <p>Nếu bạn đã nhập xong, hãy kiểm tra lại và bấm vào nút "Đồng ý"</p>
 		<footer>
