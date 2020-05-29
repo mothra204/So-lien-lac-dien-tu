@@ -79,7 +79,7 @@
 					<!-- Drop down name sinh vien-->
 					<div id = "dropdownStudent" class="dropdown-menu">
 					</div>
-					<p id="importName"></p>
+					<p id="importName" onchange="idStudent()"></p>
 			</div>
 			
 
@@ -106,7 +106,7 @@
 					console.log(this.getAttribute("ValueID"));
 					document.getElementById("importName").innerHTML +=this.getAttribute("ValueID");
 				}
-								
+				
 
         		var myFunction = function(value) {
 					var str = this.innerHTML;
@@ -155,12 +155,20 @@
 		
 		<!--Thanh update diem cho sinh vien -->
 		<div id="Container_1"  class="container">	
-			<form action="Model/UpdateMark.php" method="POST">
+			<form action="Model/InsertMark.php" method="POST">
 			<div class="form-group">
 				<label>Nhập Mã Môn Học</label>
 				<input type="text" class="form-control" placeholder="Nhập" name="idClass">
 				<label for="number">Nhập Điểm</label>
 				<input type="text" class="form-control" id="Number" placeholder="Nhập điểm" name="Mark">
+
+				<input type="hidden" name="idStudent" >
+				<script>
+					var idStudent = function(value){
+						var id = document.getElementById('importName').value;
+						document.getElementById("idStudent").value=id;
+					}
+				</script>
 			</div>
 			<button type="submit" class="btn btn-primary">Đồng ý</button>
 			
