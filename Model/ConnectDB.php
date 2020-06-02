@@ -15,7 +15,7 @@ class cConnectDB
         $this->host="localhost";
         $this->user="root";
         $this->password="";
-        $this->dbname="test";
+        $this->dbname="slldt";
     }
 
     public function Connection()

@@ -79,7 +79,7 @@
 					<!-- Drop down name sinh vien-->
 					<div id = "dropdownStudent" class="dropdown-menu">
 					</div>
-					<p id="importName" onchange="idStudent()"></p>
+					<p id="importName"></p>
 			</div>
 			
 
@@ -133,9 +133,9 @@
 								//Init
 								node.setAttribute("ValueID", arrStudemt[++j]);
 								node.appendChild(textnode);                            
-								node.className = "dropdown-item dropdown-item-class";
+								node.className = "dropdown-item dropdown-item-student";
 								node.onclick = OnChangeStudent;
-
+								node.onclick = idStudent;
 								dropdownStudent.appendChild(node);
 							}
 						}
@@ -164,9 +164,12 @@
 
 				<input type="hidden" name="idStudent" >
 				<script>
-					var idStudent = function(value){
-						var id = document.getElementById('importName').value;
-						document.getElementById("idStudent").value=id;
+					/*function takeId(idSv){
+						var id =idSv.getAttribute("ValueID");
+					}*/
+					var idStudent = function(idSv){
+						var id =idSv.getAttribute("ValueID");
+						document.getElementById("idStudent").innerHTML=id;
 					}
 				</script>
 			</div>
@@ -175,10 +178,6 @@
 			</form>
 		</div>
 		
-
-
-
-
 <p>Nếu bạn đã nhập xong, hãy kiểm tra lại và bấm vào nút "Đồng ý"</p>
 		<footer>
 		<div id="footer">
