@@ -135,7 +135,6 @@
 								node.appendChild(textnode);                            
 								node.className = "dropdown-item dropdown-item-student";
 								node.onclick = OnChangeStudent;
-								node.onclick = idStudent;
 								dropdownStudent.appendChild(node);
 							}
 						}
